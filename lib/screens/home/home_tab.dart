@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:greengrocer/config/custom_colors.dart';
 import 'package:greengrocer/screens/home/components/category_tile.dart';
 import 'package:greengrocer/screens/home/components/item_tile.dart';
+import 'package:greengrocer/services/utils_services.dart';
 
 import '../../config/app_data.dart' as app_data;
 
@@ -24,6 +25,8 @@ class _HomeTabState extends State<HomeTab> {
   void itemSelectedCartAnimation(GlobalKey gkImage) {
     runAddToCardAnimation(gkImage);
   }
+
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +60,12 @@ class _HomeTabState extends State<HomeTab> {
               child: Badge(
                 backgroundColor: CustomColors.customContrastColor,
                 label: const Text('2'),
-                child: Icon(
-                  Icons.shopping_cart,
-                  color: CustomColors.customSwatchColor,
+                child: AddToCartIcon(
+                  key: globalKeyCartItems,
+                  icon: Icon(
+                    Icons.shopping_cart,
+                    color: CustomColors.customSwatchColor,
+                  ),
                 ),
               ),
             ),
@@ -137,7 +143,10 @@ class _HomeTabState extends State<HomeTab> {
                   childAspectRatio: 9 / 11.5,
                 ),
                 itemBuilder: (context, index) {
-                  return ItemTile(item: app_data.items[index]);
+                  return ItemTile(
+                    item: app_data.items[index],
+                    cartAnimationMethod: itemSelectedCartAnimation,
+                  );
                 },
               ),
             ),
