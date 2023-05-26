@@ -3,6 +3,8 @@
         "fluttertoast",
         "grey",
         "LTRB",
-        "RGBO"
+        "RGBO",
+        "signin",
+        "signup"
     ]
 }

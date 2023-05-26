@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/screens/splash/splash_screen.dart';
+import 'package:get/get.dart';
+import 'package:greengrocer/routes/app_pages.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,14 +11,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: "Greengrocer",
       theme: ThemeData(
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      getPages: AppPages.pages,
+      initialRoute: PagesRoutes.splashRoute,
     );
   }
 }
