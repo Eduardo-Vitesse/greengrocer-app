@@ -114,15 +114,15 @@ class SignInScreen extends StatelessWidget {
                                   : () {
                                       FocusScope.of(context).unfocus();
 
-                                      if (_formKey.currentState!.validate()) {
-                                        String email = emailController.text;
-                                        String password =
-                                            passwordController.text;
+                                      // if (_formKey.currentState!.validate()) {
+                                      //   String email = emailController.text;
+                                      //   String password =
+                                      //       passwordController.text;
 
-                                        authController.signIn(
-                                            email: email, password: password);
-                                      } else {}
-                                      // Get.offNamed(PagesRoutes.baseRoute);
+                                      //   authController.signIn(
+                                      //       email: email, password: password);
+                                      // } else {}
+                                      Get.offNamed(PagesRoutes.baseRoute);
                                     },
                               child: authController.isLoading.value
                                   ? const CircularProgressIndicator()
