@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/constants/endpoints.dart';
+import 'package:greengrocer/models/user_model.dart';
 import 'package:greengrocer/services/http_manager.dart';
 
 class AuthRepository {
@@ -20,6 +21,7 @@ class AuthRepository {
 
     if (result['result'] != null) {
       debugPrint('Login funcionou');
+      final user = UserModel.fromMap(result['result']);
     } else {
       debugPrint('Login NÃO funcionou');
     }
